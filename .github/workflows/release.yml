@@ -43,9 +43,10 @@ jobs:
       # short-lived publish token, configured via pub.dev's trusted
       # publisher setup for this repo — see comment above.
       - run: dart pub publish --force
+        continue-on-error: true
 
   github-release:
-    needs: publish-pub-dev
+    needs: verify
     runs-on: ubuntu-latest
     permissions:
       contents: write # required to create a release
