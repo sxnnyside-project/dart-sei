@@ -1,0 +1,70 @@
+name: Release
+
+# Triggered by pushing a version tag, e.g. `git tag v1.0.0 && git push --tags`.
+# The tag must match the pattern configured on pub.dev's "Automated
+# publishing" admin page for this package (Admin tab → Automated
+# publishing → tag pattern `v{{version}}`).
+#
+# Requires: the package's first release to pub.dev was done manually
+# (`dart pub publish`) — pub.dev only allows configuring trusted
+# publishing for a package that already has at least one published version.
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - uses: extractions/setup-just@v2
+      - run: just install
+      - run: just format-check
+      - run: just lint
+      - run: just test
+
+  publish-pub-dev:
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required for pub.dev OIDC trusted publishing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+      - run: dart pub get
+      # No credentials needed: pub.dev exchanges this job's OIDC token for a
+      # short-lived publish token, configured via pub.dev's trusted
+      # publisher setup for this repo — see comment above.
+      - run: dart pub publish --force
+
+  github-release:
+    needs: publish-pub-dev
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # required to create a release
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract this version's changelog section
+        id: notes
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          awk -v ver="$VERSION" '
+            BEGIN { found=0 }
+            /^## \[/ {
+              if (found) exit
+              if ($0 ~ "\\[" ver "\\]") { found=1; next }
+            }
+            /^\[.*\]:/ { if (found) exit }
+            found { print }
+          ' CHANGELOG.md | grep -v '^---$' > release_notes.md
+      - uses: softprops/action-gh-release@v2
+        with:
+          body_path: release_notes.md
+          generate_release_notes: false

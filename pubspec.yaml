@@ -1,0 +1,29 @@
+name: dart_sei
+description: >-
+  Pure Dart library for Sxnnyside Eloquent Icons (SEI). Provides standalone SVG
+  markup, vector paths, and helpers for Jaspr, web, server-side, and CLI Dart.
+version: 1.0.0
+homepage: https://github.com/sxnnyside-project/dart-sei
+repository: https://github.com/sxnnyside-project/dart-sei
+issue_tracker: https://github.com/sxnnyside-project/dart-sei/issues
+topics:
+  - icons
+  - svg
+  - vector
+  - jaspr
+  - web
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dev_dependencies:
+  lints: ^6.0.0
+  # Floor set well above test's own minimum: older versions in its
+  # dependency range resolve transitive packages (pub_semver, file,
+  # watcher, and test's own internal compiler invocation) that are
+  # incompatible with the current Dart SDK, breaking `dart pub downgrade`.
+  test: ^1.30.0
+  # frontend_server_client's own floor looks for a snapshot filename that
+  # this Dart SDK build no longer ships under (only the AOT variant is
+  # present), which breaks `dart test` at test's declared lower bound.
+  frontend_server_client: ^4.0.0

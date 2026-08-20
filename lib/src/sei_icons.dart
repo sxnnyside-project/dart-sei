@@ -1,0 +1,201 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// Generated from sxnnyside-eloquent-icons/icons/outline
+
+import "sei_icon_data.dart";
+import "data/outline_icons_data.dart";
+
+/// The complete set of outline icons in Sxnnyside Eloquent Icons (SEI).
+///
+/// Every icon has an outline representation crafted on a 24x24 pixel grid.
+enum SeiIcons {
+  account('account'),
+  add('add'),
+  alert('alert'),
+  analytics('analytics'),
+  api('api'),
+  app('app'),
+  apps('apps'),
+  arrowRight('arrow-right'),
+  back('back'),
+  backup('backup'),
+  badge('badge'),
+  book('book'),
+  box('box'),
+  brackets('brackets'),
+  browser('browser'),
+  bug('bug'),
+  build('build'),
+  bulb('bulb'),
+  calendar('calendar'),
+  chartBar('chart-bar'),
+  chartLine('chart-line'),
+  chartPie('chart-pie'),
+  check('check'),
+  checklist('checklist'),
+  clock('clock'),
+  close('close'),
+  cloud('cloud'),
+  code('code'),
+  compass('compass'),
+  computer('computer'),
+  connection('connection'),
+  cpu('cpu'),
+  creditCard('credit-card'),
+  crown('crown'),
+  dashboard('dashboard'),
+  database('database'),
+  debug('debug'),
+  deploy('deploy'),
+  device('device'),
+  discount('discount'),
+  downSmall('down-small'),
+  download('download'),
+  edit('edit'),
+  error('error'),
+  exploit('exploit'),
+  file('file'),
+  filter('filter'),
+  fingerprint('fingerprint'),
+  firewall('firewall'),
+  flame('flame'),
+  focus('focus'),
+  folder('folder'),
+  function('function'),
+  gamepad('gamepad'),
+  globe('globe'),
+  heart('heart'),
+  help('help'),
+  home('home'),
+  info('info'),
+  install('install'),
+  invite('invite'),
+  invoice('invoice'),
+  joystick('joystick'),
+  key('key'),
+  layoutGrid('layout-grid'),
+  layoutList('layout-list'),
+  linkExternal('link-external'),
+  link('link'),
+  lockOpen('lock-open'),
+  lock('lock'),
+  log('log'),
+  login('login'),
+  logout('logout'),
+  mail('mail'),
+  menu('menu'),
+  message('message'),
+  money('money'),
+  more('more'),
+  music('music'),
+  mute('mute'),
+  notification('notification'),
+  offline('offline'),
+  package('package'),
+  palette('palette'),
+  pause('pause'),
+  planet('planet'),
+  playCircle('play-circle'),
+  plugin('plugin'),
+  power('power'),
+  pricing('pricing'),
+  profile('profile'),
+  progress('progress'),
+  puzzle('puzzle'),
+  qr('qr'),
+  receipt('receipt'),
+  refresh('refresh'),
+  register('register'),
+  remove('remove'),
+  restore('restore'),
+  rotate('rotate'),
+  router('router'),
+  scan('scan'),
+  search('search'),
+  server('server'),
+  settings('settings'),
+  share('share'),
+  shield('shield'),
+  shoppingBag('shopping-bag'),
+  skull('skull'),
+  sort('sort'),
+  sound('sound'),
+  spark('spark'),
+  star('star'),
+  store('store'),
+  subscription('subscription'),
+  success('success'),
+  sync('sync'),
+  tab('tab'),
+  task('task'),
+  team('team'),
+  terminal('terminal'),
+  timer('timer'),
+  tool('tool'),
+  transfer('transfer'),
+  translate('translate'),
+  tv('tv'),
+  uninstall('uninstall'),
+  unlock('unlock'),
+  update('update'),
+  upload('upload'),
+  user('user'),
+  users('users'),
+  variable('variable'),
+  verified('verified'),
+  version('version'),
+  visibilityOff('visibility-off'),
+  visibility('visibility'),
+  wallet('wallet'),
+  warning('warning'),
+  watch('watch'),
+  wifi('wifi'),
+  window('window'),
+  ;
+
+  const SeiIcons(this.name);
+
+  /// The canonical kebab-case name of the icon (e.g. `arrow-right`).
+  final String name;
+
+  /// Returns the detailed [SeiIconData] for this icon.
+  SeiIconData get data => SeiOutlineData.lookup(this);
+
+  /// Returns the raw inner SVG elements/paths (without `<svg>` wrapper).
+  String get innerSvg => data.innerSvg;
+
+  /// Returns the complete SVG string.
+  ///
+  /// Customize [size], [color], [strokeWidth], [className], or arbitrary SVG [attributes].
+  String toSvg({
+    double size = 24.0,
+    double? width,
+    double? height,
+    String color = 'currentColor',
+    double strokeWidth = 2.0,
+    String? className,
+    Map<String, String>? attributes,
+  }) {
+    return data.toSvg(
+      size: size,
+      width: width,
+      height: height,
+      color: color,
+      strokeWidth: strokeWidth,
+      className: className,
+      attributes: attributes,
+    );
+  }
+
+  /// Returns an inline Data URI suitable for CSS or HTML `<img>` `src`.
+  String toDataUri({
+    String color = "currentColor",
+    double strokeWidth = 2.0,
+    bool base64Encode = false,
+  }) {
+    return data.toDataUri(
+      color: color,
+      strokeWidth: strokeWidth,
+      base64Encode: base64Encode,
+    );
+  }
+}
